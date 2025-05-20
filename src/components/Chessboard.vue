@@ -1,6 +1,5 @@
 <template>
   <div class="chessboard">
-    <!-- 8 * 8 grid -->
     <div class="row" v-for="(row, rowIndex) in 8" :key="rowIndex">
       <div
         v-for="(column, colIndex) in 8"

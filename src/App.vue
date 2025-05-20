@@ -51,7 +51,7 @@ const clearList = () => {
 
 .app {
   display: flex;
-  justify-content: center; /* Center the wrapper */
+  justify-content: center;
   padding: 1rem;
 }
 
