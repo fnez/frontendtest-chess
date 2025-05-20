@@ -18,6 +18,7 @@
 <script setup>
 import { ref } from "vue";
 const highlighted = ref([]);
+const emit = defineEmits([["squareClick"]]);
 
 const handleClick = (row, col) => {
   const square = squareLabel(row, col);
@@ -33,8 +34,6 @@ const squareLabel = (row, column) => {
   const columns = "abcdefgh";
   return columns[column] + (8 - row);
 };
-
-const emit = defineEmits([["squareClick"]]);
 </script>
 
 <style>

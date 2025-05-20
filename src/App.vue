@@ -3,7 +3,7 @@
     <div class="boardContainer">
       <Chessboard @squareClick="handleClick" />
     </div>
-    <Sidepanel :clickedSquares="clickedList" />
+    <Sidepanel :clickedSquares="clickedList" @clear="clearList" />
   </div>
 </template>
 
@@ -16,6 +16,10 @@ const clickedList = ref([]);
 
 const handleClick = (square) => {
   clickedList.value.push(square);
+};
+
+const clearList = () => {
+  clickedList.value = [];
 };
 </script>
 
