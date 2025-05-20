@@ -7,7 +7,9 @@
         {{ square }}
       </li>
     </ol>
-    <button @click="clearSquares" class="clear-btn">Clear Squares</button>
+    <button @click="clearSquares" class="clear-btn">Clear List</button>
+    <!-- TO DO  -->
+    <!-- Clear the highlighted blocks on click -->
   </aside>
 </template>
 
@@ -25,8 +27,7 @@ const clearSquares = () => {
   width: 250px;
   padding: 1rem;
   border-left: 2px solid #ddd;
-  background: tomato;
-  color: white;
+  background: lightblue;
 }
 
 .clear-btn {
