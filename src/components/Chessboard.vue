@@ -2,18 +2,39 @@
   <div class="chessboard">
     <!-- 8 * 8 grid -->
     <div class="row" v-for="(row, rowIndex) in 8" :key="rowIndex">
-      <div class="square" v-for="(column, columnIndex) in 8" :key="columnIndex">
-        {{ squareLabel(rowIndex, columnIndex) }}
+      <div
+        v-for="(column, colIndex) in 8"
+        class="square"
+        :class="{ highlighted: isClicked(rowIndex, colIndex) }"
+        :key="colIndex"
+        @click="handleClick(rowIndex, colIndex)"
+      >
+        {{ squareLabel(rowIndex, colIndex) }}
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
+const highlighted = ref([]);
+
+const handleClick = (row, col) => {
+  const square = squareLabel(row, col);
+  highlighted.value.push(square);
+  emit("squareClick", square);
+};
+
+const isClicked = (row, col) => {
+  return highlighted.value.includes(squareLabel(row, col));
+};
+
 const squareLabel = (row, column) => {
   const columns = "abcdefgh";
   return columns[column] + (8 - row);
 };
+
+const emit = defineEmits([["squareClick"]]);
 </script>
 
 <style>

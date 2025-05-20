@@ -1,9 +1,9 @@
 <template>
   <div class="app">
     <div class="boardContainer">
-      <Chessboard />
+      <Chessboard @squareClick="handleClick" />
     </div>
-    <!-- <Sidepanel /> -->
+    <Sidepanel />
   </div>
 </template>
 
